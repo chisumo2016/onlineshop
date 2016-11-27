@@ -81,10 +81,10 @@ if(isset($_GET['add'])){
             // Upload file and insert into database
 
             move_uploaded_file($tmpLoc,$uploadPath);
-           // $insertSql = "INSERT INTO products ('title','price','list_price','brands','categories','images','description','sizes')
-            $insertSql = "INSERT INTO products (  `title`,`price`,`list_price`,`brands`,`categories`,`'images`,`description`,`sizes`) 
+
+            $insertSql = "INSERT INTO products (  `title`,`price`,`list_price`,`brands`,`categories`,`image`,`description`,`sizes`)
                           VALUE('$title ', '$price','$list_price',' $brand ','$categories','$dbpath','$description','$sizes')";
-            $db->query($insertSq);
+            $db->query($insertSql);
             header('Location: products.php');
         }
     }
@@ -221,8 +221,8 @@ if (isset($_GET['featured'])){
              $child = mysqli_fetch_assoc( $result);
              $parent_id =  $child['parent'];
              $parent_sql = "SELECT * FROM categories WHERE id = ' $parent_id'";
-             $product_result=$db->query($parent_sql);
-             $parent = mysqli_fetch_assoc($product_result);
+             $p_result=$db->query($parent_sql);
+             $parent = mysqli_fetch_assoc($p_result);
              $category = $parent['category'].'~'.$child['category'];
 
              ?>

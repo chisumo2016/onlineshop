@@ -25,15 +25,18 @@
 
     function detailsmodal(id){
         var data = {"id" : id};
+        var getUrl = window.location;
+        var baseUrl = getUrl .protocol + "//" + getUrl.host + "/";
         jQuery.ajax({
-            url : '/OnlineShop/includes/detailsmodal.php',
-            method: "POST",
+            url : '/includes/detailsmodal.php',
+            //url : baseurl + '/includes/detailsmodal.php'
+            method: "post",
             data: data,
             success: function(data){
                 jQuery('body').append(data);
                 jQuery('#details-modal').modal('toggle');
             },
-            error :  function() {
+            error :function(){
                 alert("Something Went Wrong");
             }
         });

@@ -39,8 +39,8 @@
                             <h4>Details</h4>
                             <p><?=nl2br($product['description']);?></p>
                             <hr>
-                            <p>price:   $ <?= $product['price'];?></p>
-                            <p>Brand:   <?= $product['brand'];?></p>
+                            <p>price:   £ <?= $product['price'];?></p>
+                            <p>Brand:  <?= $product['brand'];?></p>
                             <form action="add_cart.php" method="post">
                                 <div class="form-group">
                                     <div class="col-xs-3">
@@ -58,7 +58,7 @@
                                             $string_array = explode(':', $string);
                                             $size  = $size_array[0];
                                             $quantity  = $string_array[1];
-                                            echo ' <option value="'.$size.'">'.  $size.'('.$quantity.', Available)</option>';
+                                            echo ' <option value="'.$size.'">'.$size.'('.$quantity.', Available)</option>';
                                         } ?>
                                     </select>
                                 </div>
